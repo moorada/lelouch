@@ -26,6 +26,15 @@ Per convertire una parola in un corrispondente numerico (e viceversa) vanno risp
 * Bisogna sempre valutare il suono che la lettera produce. Per esempio, "gl" in "sciogliere" ha un suono liquido, perciò corrisponde a 5, mentre in "glicine" "gl" produce due suoni separati ("g" gutturale e "l" liquida), corrispondenti a 75. Sempre in "sciogliere", "sc" produce un suono sibilante corrispondente a 0, mentre in "scatola" "sc" produce due suoni separati ("s" sibilante e "c" gutturale), corrispondenti a 07.
 
 ## Funzionalità
-![alt lelouch](https://raw.githubusercontent.com/moorada/lelouch/img/interfaccia.png)
+<p align="center">
+  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/interfaccia.png" width="40%" />
+</p>
+
+* La prima funzione crea un dizionario numerato (ogni parola è associata al numero corrispondente della conversione fonetica) con tutte le parole presenti nei file .txt nella cartella "paroleitaliane".
+* "CONVERTI", converte semplicemente il numero/parola in parola/numero.
+* "GAME", interroga e controlla la tua risposta.
 
 ## In sviluppo
+* Scegliere la difficoltà del gioco, selezionando l'intervallo della lunghezza delle parole/numeri.
+* Modalità di gioco con più parole.
+* Modalità di gioco personale con numeri/parole/frasi inserite dall'utente.
