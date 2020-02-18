@@ -6,16 +6,18 @@ La conversione fonetica è una tecnica di memorizzazione dei numeri. Funziona co
 Ogni cifra viene convertita in una consonante. 
 | Num. |	Suono |	Lettere |	Esempio
 | --- | --- | --- | --- |
-1 |	dentale |	T, D 	tè, dio, ateo, due, atto |
-2 |	nasale |	N, GN 	neo, anno, gnè |
-3 |	mugolante |	M 	amo, mio, emme |
-4 |	vibrante |	R 	ara, re, oro, erre |
-5 |	liquido |	L, GL 	ali, lui, aglio, li |
-6 |	palatale |	C, G (dolci) 	ciao, oggi, ci, gi, agio |
-7 |	gutturale |	C, G (dure), K 	occhio, eco, chi, qui, ago, gay, acca |
-8 |	labiodentale |	F, V 	ufo, uva, via, uffa, avvio |
-9 |	labiale |	P, B 	boa, ape, oppio, oboe |
-0 |	sibilante |	S, SC, Z 	sei, esse, zio, ozio, ascia, scia |
+1 |	dentale |	T, D | 	tè, dio, ateo, due, atto |
+2 |	nasale |	N, GN |	neo, anno, gnè |
+3 |	mugolante |	M | amo, mio, emme |
+4 |	vibrante |	R |	ara, re, oro, erre |
+5 |	liquido |	L, GL |	ali, lui, aglio, li |
+6 |	palatale |	C, G (dolci) |	ciao, oggi, ci, gi, agio |
+7 |	gutturale |	C, G (dure), K |	occhio, eco, chi, qui, ago, gay, acca |
+8 |	labiodentale |	F, V |	ufo, uva, via, uffa, avvio |
+9 |	labiale |	P, B |	boa, ape, oppio, oboe |
+0 |	sibilante |	S, SC, Z |	sei, esse, zio, ozio, ascia, scia |
+
+
 Per convertire una parola in un corrispondente numerico (e viceversa) vanno rispettate alcune regole:
 
 * Le vocali non corrispondono a nessuna cifra, quindi non vanno considerate;
