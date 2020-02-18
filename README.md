@@ -27,7 +27,7 @@ Per convertire una parola in un corrispondente numerico (e viceversa) vanno risp
 
 ## Funzionalità
 <p align="center">
-  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/interfaccia.png" width="40%" />
+  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/interfaccia.png" width="40%" />
 
 </p>
 
