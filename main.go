@@ -4,50 +4,123 @@ import (
 	"fmt"
 	"math/rand"
 
+	"github.com/evilsocket/islazy/log"
 	"github.com/manifoldco/promptui"
-	"github.com/moorada/log"
 )
 
-const DA_PAROLA_A_NUMERO = "Da parola a numero"
-const DA_NUMERO_A_PAROLA = "Da numero a parola"
+const MakeDizionario = "Crea un dizionario"
+const GameDaParolaANumero = "GAME: Da parola a numero"
+const GameDaNumeroAParola = "GAME: Da numero a parola"
+const ConvertiParolaANumero = "CONVERTI: Da parola a numero"
+const ConvertiNumeroAParola = "CONVERTI: Da numero a parola"
+
+var indexedDictionary AS
 
 func main() {
 
+	indexedDictionary = getIndexedDictionary()
+
 	prompt := promptui.Select{
 		Label: "Seleziona gioco",
-		Items: []string{DA_PAROLA_A_NUMERO, DA_NUMERO_A_PAROLA},
+		Items: []string{MakeDizionario, ConvertiParolaANumero, ConvertiNumeroAParola, GameDaParolaANumero, GameDaNumeroAParola},
 	}
 	_, result, err := prompt.Run()
 
 	switch result {
-	case DA_PAROLA_A_NUMERO:
-		gameNP()
-	case DA_NUMERO_A_PAROLA:
+	case ConvertiParolaANumero:
+		convertiPN()
+	case ConvertiNumeroAParola:
+		convertiNP()
+	case GameDaParolaANumero:
 		gamePN()
+	case GameDaNumeroAParola:
+		gameNP()
+	case MakeDizionario:
+		makeDizionario()
 	}
+
 	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
+		log.Fatal("Error: %s", err)
 		return
 	}
 }
 
-func gameNP(){
-	//TODO
+func convertiPN() {
+
+	var response string
+	_, err := fmt.Scanln(&response)
+	if err != nil {
+		log.Fatal("Error: %s", err)
+	}
+	fmt.Println(wordToNumber(response))
 }
 
-func gamePN(){
+func convertiNP() {
+
+	var response string
+	_, err := fmt.Scanln(&response)
+	if err != nil {
+		log.Fatal("Error: %s", err)
+	}
+
+	words := indexedDictionary[response]
+	fmt.Print("Possibili parole: ")
+	for _, w := range words {
+		fmt.Print(w + ", ")
+	}
+}
+
+func gamePN() {
+	var numbers []string
+
+	for k, _ := range indexedDictionary {
+		numbers = append(numbers, k)
+	}
+
 	for {
-		min := 10
-		max := 99
-		randomNumber := rand.Intn(max-min) + min
-		fmt.Println("Converti il numero:", randomNumber)
+		var ws []string
+
+		index := 0
+		if len(numbers) > 1 {
+			index = rand.Intn(len(numbers) - 1)
+		}
+		ws = indexedDictionary[numbers[index]]
+
+		randomIndex := rand.Intn(len(ws) - 1)
+		fmt.Println("Converti la parola:", ws[randomIndex])
 		var response string
 		_, err := fmt.Scanln(&response)
 		if err != nil {
 			log.Fatal("Error: %s", err)
 		}
-		//TODO
+		if response == numbers[index] {
+			fmt.Println("Corretto!")
+		} else {
+			fmt.Println("Sbagliato!!")
+		}
 	}
-
 }
 
+func gameNP() {
+
+	var numbers []string
+
+	for k, _ := range indexedDictionary {
+		numbers = append(numbers, k)
+	}
+
+	for {
+		randomNumber := rand.Intn(len(numbers) - 1)
+		fmt.Println("Converti il numero:", numbers[randomNumber])
+		var response string
+		_, err := fmt.Scanln(&response)
+		if err != nil {
+			log.Fatal("Error: %s", err)
+		}
+		if wordToNumber(response) == numbers[randomNumber] {
+			fmt.Println("Corretto!")
+		} else {
+			fmt.Println("Sbagliato!!")
+		}
+	}
+}
