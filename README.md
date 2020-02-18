@@ -28,7 +28,12 @@ Per convertire una parola in un corrispondente numerico (e viceversa) vanno risp
 ## Funzionalità
 <p align="center">
   <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/interfaccia.png" width="40%" />
-
 </p>
+* La prima funzione crea un dizionario numerato (ogni parola è associata al numero corrispondente della conversione fonetica) con tutte le parole presenti nei file .txt nella cartella "paroleitaliane".
+* "CONVERTI", converte semplicemente il numero/parola in parola/numero.
+* "GAME", interroga e controlla la tua risposta.
 
 ## In sviluppo
+* Scegliere la difficoltà del gioco, selezionando l'intervallo della lunghezza delle parole/numeri.
+* Modalità di gioco con più parole.
+* Modalità di gioco personale con numeri/parole/frasi inserite dall'utente.
