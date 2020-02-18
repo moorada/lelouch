@@ -64,14 +64,19 @@ func convertiNP() {
 	}
 
 	words := indexedDictionary[response]
-	fmt.Println("Possibili parole: ")
 	if len(words) == 0 {
 		fmt.Println("Nessuna parola trovata")
+	} else {
+		fmt.Println("Possibili parole: ")
 	}
-	for _, w := range words {
-		fmt.Print(w + ", ")
+	for i, w := range words {
+		fmt.Print(w)
+		if i < len(words)-1 {
+			fmt.Print(", ")
+		} else {
+			fmt.Println(".")
+		}
 	}
-	fmt.Println(".")
 }
 
 func gamePN() {
