@@ -26,6 +26,6 @@ Per convertire una parola in un corrispondente numerico (e viceversa) vanno risp
 * Bisogna sempre valutare il suono che la lettera produce. Per esempio, "gl" in "sciogliere" ha un suono liquido, perciò corrisponde a 5, mentre in "glicine" "gl" produce due suoni separati ("g" gutturale e "l" liquida), corrispondenti a 75. Sempre in "sciogliere", "sc" produce un suono sibilante corrispondente a 0, mentre in "scatola" "sc" produce due suoni separati ("s" sibilante e "c" gutturale), corrispondenti a 07.
 
 ## Funzionalità
-![alt lelouch](https://raw.githubusercontent.com/moorada/lelouch/img/interfaccia.png)
+![alt lelouch](https://raw.githubusercontent.com/moorada/lelouch/blob/master/img/interfaccia.png)
 
 ## In sviluppo
