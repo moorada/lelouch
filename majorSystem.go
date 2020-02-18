@@ -5,29 +5,35 @@ type Figure struct {
 	phonetics []string
 }
 
-type MS [10]Figure
-//TODO Risolvere il problema della "gl", a volte si legge palatale, a volte gutturale.
-
-var ItalianMS = MS{
-	{'0', []string{"s", "z", "sc","sc"}},
-	{'1', []string{"t", "d"}},
-	{'2', []string{"n", "gn"}},
-	{'3', []string{"m"}},
-	{'4', []string{"r"}},
-	{'5', []string{"l", "gl"}},
-	{'6', []string{"ce", "ci", "ge", "gi", "j"}},
-	{'7', []string{"c","g","ca", "co", "cu", "ch", "ga", "go", "gu", "gh", "q","k"}},
-	{'8', []string{"f", "v"}},
-	{'9', []string{"p", "b"}},
+type Adjustament struct {
+	original string
+	variants []string
 }
 
-var Vowels = []rune{'a', 'e', 'i', 'o', 'u', 'à', 'é', 'í', 'ó', 'ú', 'à', 'è', 'ì', 'ò', 'ù'}
+type MS [10]Figure
 
-func IsVowel(vowel rune) bool {
-	for _, c := range Vowels {
-		if vowel == c {
-			return true
-		}
-	}
-	return false
+type AD []Adjustament
+
+//TODO Risolvere il problema della "gli", gutturale solo se all'inizio della parola
+
+var ItalianAdjustments = AD{
+	{"a", []string{"á", "à",}},
+	{"e", []string{"è", "é"}},
+	{"i", []string{"ì", "í", "y", "j"}},
+	{"o", []string{"ò", "ó"}},
+	{"u", []string{"ù", "ú"}},
+	{"ks", []string{"x"}},
+}
+
+var ItalianMS = MS{
+	{'0', []string{"ss", "zz", "sci", "sce", "s", "z"}},
+	{'1', []string{"t", "d"}},
+	{'2', []string{"nn", "gn", "n"}},
+	{'3', []string{"mm", "m"}},
+	{'4', []string{"rr", "r"}},
+	{'5', []string{"gli", "ll", "l"}},
+	{'6', []string{"cci", "ci", "cce", "ce", "ggi", "gi", "gge", "ge"}},
+	{'7', []string{"cc", "gg", "cq", "kk", "q", "k", "c", "g",}},
+	{'8', []string{"ff", "vv", "f", "v"}},
+	{'9', []string{"pp", "bb", "p", "b"}},
 }

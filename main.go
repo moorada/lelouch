@@ -3,90 +3,51 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strings"
 
 	"github.com/manifoldco/promptui"
 	"github.com/moorada/log"
 )
 
+const DA_PAROLA_A_NUMERO = "Da parola a numero"
+const DA_NUMERO_A_PAROLA = "Da numero a parola"
+
 func main() {
 
 	prompt := promptui.Select{
-		Label: "Select Day",
-		Items: []string{"English", "Italian"},
+		Label: "Seleziona gioco",
+		Items: []string{DA_PAROLA_A_NUMERO, DA_NUMERO_A_PAROLA},
 	}
 	_, result, err := prompt.Run()
 
 	switch result {
-	case "English":
-		english()
-	case "Italian":
-		italian()
-	default:
-		fmt.Printf("English")
+	case DA_PAROLA_A_NUMERO:
+		gameNP()
+	case DA_NUMERO_A_PAROLA:
+		gamePN()
 	}
-
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 		return
 	}
 }
 
-func english() {
-	fmt.Println("TODO")
+func gameNP(){
+	//TODO
 }
 
-func italian() {
+func gamePN(){
 	for {
 		min := 10
 		max := 99
 		randomNumber := rand.Intn(max-min) + min
-
-		fmt.Println("Write a correct word:", randomNumber)
+		fmt.Println("Converti il numero:", randomNumber)
 		var response string
 		_, err := fmt.Scanln(&response)
 		if err != nil {
 			log.Fatal("Error: %s", err)
 		}
-		isRight := rightAssociation(response, rune(randomNumber), ItalianMS)
-		if isRight {
-			fmt.Println("Correct answer!")
-		} else {
-			fmt.Println("Wrong!!")
-		}
+		//TODO
 	}
+
 }
 
-func rightAssociation(word string, number rune, ms MS) bool {
-	//per ogni lettera della parola
-	for _, c := range word {
-		if IsVowel(c) {
-			continue
-		}
-		compatibleFigures := compatibleFigures(c, ms)
-		//Se trova solo una figura compatibile è quella giusta
-		if len(compatibleFigures) == 1 {
-			if number == compatibleFigures[0].char{
-				return true
-			}
-		} else {
-			//altrimenti bisogna vedere la seconda lettera
-		}
-
-	}
-	return false
-}
-
-func compatibleFigures(c rune, ms MS) []Figure {
-	var compatibleFigures []Figure
-	//se è una consonante seleziona le figures compatibili
-	for _, f := range ms {
-		for _, ph := range f.phonetics {
-			if strings.ContainsRune(ph, c) {
-				compatibleFigures = append(compatibleFigures, f)
-				break
-			}
-		}
-	}
-	return compatibleFigures
-}
