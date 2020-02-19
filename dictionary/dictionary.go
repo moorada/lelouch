@@ -1,6 +1,5 @@
 package dictionary
 
-//Questo modulo serve per creare un nuovo dizionario associato ai numeri.
 import (
 	"encoding/json"
 	"io/ioutil"
@@ -18,6 +17,7 @@ const pathSimpleDictionaryJSON = "dizionari/simpleDictionary.json"
 const pathCommonDictionary = "dizionari/parolecomuni.txt"
 const pathCompleteDictionary = "dizionari/tutteleparole.txt"
 const pathSimpleDictionary = "dizionari/parole1-99.txt"
+
 
 type Words []string
 type AS map[string]Words

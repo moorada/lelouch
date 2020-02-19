@@ -15,7 +15,7 @@ const UpdateDictionaries = "Aggiorna i dizionari"
 const GameWordToNumber = "Gioco: Converti in numero"
 const GameNumberToWord = "Gioco: Converti in parola"
 const GameMix = "Gioco: Misto"
-const Converter = "Converter"
+const Converter = "Convertitore"
 const simpleLevel = "Sono all'inizio"
 const mediumLevel = "Sono pratico con la conversione fonetica"
 const extremeLevel = "Sono un convertitore fonetico vivente"
@@ -91,7 +91,17 @@ func stats() {
 	for _, ws := range completeDictionary {
 		numberOfWords += len(ws)
 	}
-	fmt.Println("Nel dizionario ci sono", numberOfWords, "parole")
+	fmt.Println("Nel dizionario di tutte le parole ci sono", numberOfWords, "parole")
+	numberOfWords = 0
+	for _, ws := range commonDictionary {
+		numberOfWords += len(ws)
+	}
+	fmt.Println("Nel dizionario delle parole comuni ci sono", numberOfWords, "parole")
+	numberOfWords = 0
+	for _, ws := range simpleDictionary {
+		numberOfWords += len(ws)
+	}
+	fmt.Println("Nel dizionario semplice ci sono", numberOfWords, "parole")
 
 }
 
