@@ -3,69 +3,107 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 
 	"github.com/evilsocket/islazy/log"
 	"github.com/manifoldco/promptui"
+
+	"github.com/moorada/lelouch/dictionary"
 )
 
-const MakeDizionario = "Crea un dizionario"
-const GameDaParolaANumero = "GAME: Da parola a numero"
-const GameDaNumeroAParola = "GAME: Da numero a parola"
-const ConvertiParolaANumero = "CONVERTI: Da parola a numero"
-const ConvertiNumeroAParola = "CONVERTI: Da numero a parola"
+const UpdateDictionaries = "Aggiorna i dizionari"
+const GameWordToNumber = "Gioco: Converti in numero"
+const GameNumberToWord = "Gioco: Converti in parola"
+const GameMix = "Gioco: Misto"
+const Converter = "Converter"
+const simpleLevel = "Sono all'inizio"
+const mediumLevel = "Sono pratico con la conversione fonetica"
+const extremeLevel = "Sono un convertitore fonetico vivente"
+const Stats = "Statistiche"
+const creazioneDeiDizionariInCorso = "Creazione dei dizionari in corso..."
 
-var indexedDictionary AS
+var completeDictionary dictionary.AS
+var commonDictionary dictionary.AS
+var simpleDictionary dictionary.AS
 
 func main() {
+	var err1, err2, err3 error
+	err1, completeDictionary = dictionary.GetCompleteDictionary()
+	err2, commonDictionary = dictionary.GetCommonDictionary()
+	err3, simpleDictionary = dictionary.GetSimpleDictionary()
 
-	indexedDictionary = getIndexedDictionary()
+	if err1 != nil || err2 != nil || err3 != nil {
+		dictionary.MakeDictionaries()
+		showLoadingDictionaries()
+	}
 
 	prompt := promptui.Select{
-		Label: "Seleziona gioco",
-		Items: []string{MakeDizionario, ConvertiParolaANumero, ConvertiNumeroAParola, GameDaParolaANumero, GameDaNumeroAParola},
+		Label: "Seleziona modalità",
+		Items: []string{UpdateDictionaries, Converter, GameWordToNumber, GameNumberToWord, GameMix, Stats},
 	}
 	_, result, err := prompt.Run()
-
-	switch result {
-	case ConvertiParolaANumero:
-		convertiPN()
-	case ConvertiNumeroAParola:
-		convertiNP()
-	case GameDaParolaANumero:
-		gamePN()
-	case GameDaNumeroAParola:
-		gameNP()
-	case MakeDizionario:
-		makeDizionario()
-	}
-
 	if err != nil {
 		log.Fatal("Error: %s", err)
 		return
 	}
-}
 
-func convertiPN() {
-
-	var response string
-	_, err := fmt.Scanln(&response)
-	if err != nil {
-		log.Fatal("Error: %s", err)
-	}
-	fmt.Println(wordToNumber(response))
-}
-
-func convertiNP() {
-
-	var response string
-	_, err := fmt.Scanln(&response)
-	if err != nil {
-		log.Fatal("Error: %s", err)
+	switch result {
+	case UpdateDictionaries:
+		dictionary.MakeDictionaries()
+	case Converter:
+		convert()
+	case GameWordToNumber:
+		gamePN()
+	case GameNumberToWord:
+		gameNP()
+	case GameMix:
+		gameMix()
+	case Stats:
+		stats()
 	}
 
-	words := indexedDictionary[response]
+}
+
+func showLoadingDictionaries() {
+	fmt.Println(creazioneDeiDizionariInCorso)
+}
+
+func gameMix(){
+	log.Info("TODO")
+}
+func convert() {
+	for {
+		var response string
+		_, err := fmt.Scanln(&response)
+		if err != nil {
+			log.Fatal("Error: %s", err)
+		}
+		if _, err := strconv.Atoi(response); err == nil {
+			convertNW(response)
+		} else {
+			convertWN(response)
+		}
+	}
+}
+
+func stats() {
+	var numberOfWords int
+	for _, ws := range completeDictionary {
+		numberOfWords += len(ws)
+	}
+	fmt.Println("Nel dizionario ci sono", numberOfWords, "parole")
+
+}
+
+func convertWN(word string) {
+	fmt.Println(dictionary.WordToNumber(word))
+}
+
+func convertNW(number string) {
+
+	words := completeDictionary[number]
 	if len(words) == 0 {
-		fmt.Println("Nessuna parola trovata")
+		fmt.Println("Nessuna parola compatibile")
 	} else {
 		fmt.Println("Possibili parole: ")
 	}
@@ -80,9 +118,11 @@ func convertiNP() {
 }
 
 func gamePN() {
+
+	d := chooseLevelGame()
 	var numbers []string
 
-	for k, _ := range indexedDictionary {
+	for k, _ := range d {
 		numbers = append(numbers, k)
 	}
 
@@ -93,7 +133,7 @@ func gamePN() {
 		if len(numbers) > 1 {
 			index = rand.Intn(len(numbers) - 1)
 		}
-		ws = indexedDictionary[numbers[index]]
+		ws = d[numbers[index]]
 
 		randomIndex := rand.Intn(len(ws) - 1)
 		fmt.Println("Converti la parola:", ws[randomIndex])
@@ -110,11 +150,32 @@ func gamePN() {
 	}
 }
 
+func chooseLevelGame() dictionary.AS {
+	prompt := promptui.Select{
+		Label: "Seleziona il livello",
+		Items: []string{simpleLevel, mediumLevel, extremeLevel},
+	}
+	_, result, err := prompt.Run()
+	if err != nil {
+		log.Fatal("Error: %s", err)
+	}
+	switch result {
+	case mediumLevel:
+		return commonDictionary
+	case extremeLevel:
+		return completeDictionary
+	default:
+		return simpleDictionary
+	}
+}
+
 func gameNP() {
 
 	var numbers []string
 
-	for k, _ := range indexedDictionary {
+	d := chooseLevelGame()
+
+	for k, _ := range d {
 		numbers = append(numbers, k)
 	}
 
@@ -126,7 +187,7 @@ func gameNP() {
 		if err != nil {
 			log.Fatal("Error: %s", err)
 		}
-		if wordToNumber(response) == numbers[randomNumber] {
+		if dictionary.WordToNumber(response) == numbers[randomNumber] {
 			fmt.Println("Corretto!")
 		} else {
 			fmt.Println("Sbagliato!!")
