@@ -26,8 +26,8 @@ Per convertire una parola in un corrispondente numerico (e viceversa) vanno risp
 * Bisogna sempre valutare il suono che la lettera produce. Per esempio, "gl" in "sciogliere" ha un suono liquido, perciò corrisponde a 5, mentre in "glicine" "gl" produce due suoni separati ("g" gutturale e "l" liquida), corrispondenti a 75. Sempre in "sciogliere", "sc" produce un suono sibilante corrispondente a 0, mentre in "scatola" "sc" produce due suoni separati ("s" sibilante e "c" gutturale), corrispondenti a 07.
 
 Grazie alla conversione fonetica è possibile ricordare una quantità innumerevole di cifre. Di seguito un esempio per ricordare il Pi greco fino alla trentaduesima cifra decimale.
-Pi greco con 32 cifre decimali: 3,14159265358979323846264338327950
-Una TROTA ALPINA voleva volare fino in CIELO, ma prima di partire si mise la MAGLIA, perché aveva paura del freddo: una vera FOBIA. Arrivata in quota incontrò un'OCA, dalla cui coda mancavano delle PIUME. Gliele aveva strappate uno GNOMO VORACE, che quando non mangia oche si sazia divorando NOCI, noci che coglie dai RAMI coperti di MUFFA, sporcandosi la MANICA vicino al POLSO. 
+* Pi greco con 32 cifre decimali: 3,14159265358979323846264338327950
+* Una TROTA ALPINA voleva volare fino in CIELO, ma prima di partire si mise la MAGLIA, perché aveva paura del freddo: una vera FOBIA. Arrivata in quota incontrò un'OCA, dalla cui coda mancavano delle PIUME. Gliele aveva strappate uno GNOMO VORACE, che quando non mangia oche si sazia divorando NOCI, noci che coglie dai RAMI coperti di MUFFA, sporcandosi la MANICA vicino al POLSO. 
 
 ```
 (3,) 
