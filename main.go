@@ -53,9 +53,9 @@ func main() {
 	case Converter:
 		convert()
 	case GameWordToNumber:
-		gamePN()
+		gameWN()
 	case GameNumberToWord:
-		gameNP()
+		gameNW()
 	case GameMix:
 		gameMix()
 	case Stats:
@@ -68,7 +68,7 @@ func showLoadingDictionaries() {
 	fmt.Println(creazioneDeiDizionariInCorso)
 }
 
-func gameMix(){
+func gameMix() {
 	log.Info("TODO")
 }
 func convert() {
@@ -117,7 +117,7 @@ func convertNW(number string) {
 	}
 }
 
-func gamePN() {
+func gameWN() {
 
 	d := chooseLevelGame()
 	var numbers []string
@@ -128,21 +128,21 @@ func gamePN() {
 
 	for {
 		var ws []string
+		randomIndexNumber := rand.Intn(len(numbers) - 1)
+		ws = d[numbers[randomIndexNumber]]
 
-		index := 0
-		if len(numbers) > 1 {
-			index = rand.Intn(len(numbers) - 1)
+		randomIndexWord := 0
+		if len(ws) > 1 {
+			randomIndexWord = rand.Intn(len(ws) - 1)
 		}
-		ws = d[numbers[index]]
 
-		randomIndex := rand.Intn(len(ws) - 1)
-		fmt.Println("Converti la parola:", ws[randomIndex])
+		fmt.Println("Converti la parola:", ws[randomIndexWord])
 		var response string
 		_, err := fmt.Scanln(&response)
 		if err != nil {
 			log.Fatal("Error: %s", err)
 		}
-		if response == numbers[index] {
+		if response == numbers[randomIndexNumber] {
 			fmt.Println("Corretto!")
 		} else {
 			fmt.Println("Sbagliato!!")
@@ -169,7 +169,7 @@ func chooseLevelGame() dictionary.AS {
 	}
 }
 
-func gameNP() {
+func gameNW() {
 
 	var numbers []string
 
