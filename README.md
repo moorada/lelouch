@@ -57,6 +57,5 @@ POLSO   950
 * "GAME", interroga e controlla la tua risposta.
 
 ## In sviluppo
-* Scegliere la difficoltà del gioco, selezionando l'intervallo della lunghezza delle parole/numeri.
 * Modalità di gioco con più parole.
 * Modalità di gioco personale con numeri/parole/frasi inserite dall'utente.
