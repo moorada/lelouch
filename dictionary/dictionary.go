@@ -11,7 +11,7 @@ import (
 )
 
 const pathCompleteDictionaryJSON = "dizionari/completeDictionary.json"
-const commonDictionaryJSON = "dizionari/commonDictionary.json"
+const pathcommonDictionaryJSON = "dizionari/commonDictionary.json"
 const pathSimpleDictionaryJSON = "dizionari/simpleDictionary.json"
 
 const pathCommonDictionary = "dizionari/parolecomuni.txt"
@@ -23,7 +23,7 @@ type Words []string
 type AS map[string]Words
 
 func MakeDictionaries() {
-	makeDictionary(pathCommonDictionary, commonDictionaryJSON)
+	makeDictionary(pathCommonDictionary, pathcommonDictionaryJSON)
 	makeDictionary(pathCompleteDictionary, pathCompleteDictionaryJSON)
 	makeDictionary(pathSimpleDictionary, pathSimpleDictionaryJSON)
 
@@ -99,7 +99,7 @@ func getDictionary(path string) (error, AS) {
 }
 
 func GetCommonDictionary() (error, AS) {
-	return getDictionary(commonDictionaryJSON)
+	return getDictionary(pathcommonDictionaryJSON)
 }
 
 func GetSimpleDictionary() (error, AS) {
