@@ -56,7 +56,7 @@ POLSO   950
 
 "Converti numeri o parole", converte semplicemente numeri/parole in parole/numeri. Es:
 <p align="center">
-  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/convertitore.png" width="70%" />
+  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/convertitore.png" width="90%" />
 </p>
 
 Le modalità "Gioco", interrogano, controllano la risposta e suggeriscono altre soluzioni.
