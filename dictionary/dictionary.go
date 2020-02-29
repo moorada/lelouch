@@ -10,12 +10,11 @@ import (
 	"github.com/evilsocket/islazy/log"
 )
 
-const pathCompleteDictionaryJSON = "dizionari/completeDictionary.json"
-const pathcommonDictionaryJSON = "dizionari/commonDictionary.json"
+const pathCompleteDictionaryJSON = "/dizionari/completeDictionary.json"
+const pathcommonDictionaryJSON = "/dizionari/commonDictionary.json"
 
-const pathCommonDictionary = "dizionari/parolecomuni.txt"
-const pathCompleteDictionary = "dizionari/tutteleparole.txt"
-
+const pathCommonDictionary = "/dizionari/parolecomuni.txt"
+const pathCompleteDictionary = "/dizionari/tutteleparole.txt"
 
 type Words []string
 type AS map[string]Words
@@ -27,26 +26,24 @@ func MakeDictionaries() {
 
 func makeDictionary(path string, jsonPath string) {
 
-	files, err := filepath.Glob(path)
+	var words []string
+
+	path, err := filepath.Abs(filepath.Dir(os.Args[0]) + path)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	file, err := os.Open(path)
 	if err != nil {
 		log.Fatal("Error: %s", err)
 	}
-
-	var words []string
-
-	for _, f := range files {
-		file, err := os.Open(f)
-		if err != nil {
-			log.Fatal("Error: %s", err)
-		}
-		byteValue, err := ioutil.ReadAll(file)
-		if err != nil {
-			log.Fatal("Error: %s", err)
-		}
-		morewords := strings.Split(string(byteValue), "\n")
-		words = append(words, morewords...)
-		file.Close()
+	byteValue, err := ioutil.ReadAll(file)
+	if err != nil {
+		log.Fatal("Error: %s", err)
 	}
+	morewords := strings.Split(string(byteValue), "\n")
+	words = append(words, morewords...)
+	file.Close()
 
 	m := make(AS)
 
@@ -64,6 +61,11 @@ func makeDictionary(path string, jsonPath string) {
 		}
 	}
 
+	jsonPath, err = filepath.Abs(filepath.Dir(os.Args[0]) + jsonPath)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
 	f, err := os.Create(jsonPath)
 	if err != nil {
 		log.Fatal("Error: %s", err)
@@ -76,6 +78,11 @@ func makeDictionary(path string, jsonPath string) {
 }
 
 func getDictionary(path string) (error, AS) {
+	path, err := filepath.Abs(filepath.Dir(os.Args[0])+path)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
 	file, err := os.Open(path)
 	defer file.Close()
 	if err != nil {
@@ -97,7 +104,6 @@ func getDictionary(path string) (error, AS) {
 func GetCommonDictionary() (error, AS) {
 	return getDictionary(pathcommonDictionaryJSON)
 }
-
 
 func GetCompleteDictionary() (error, AS) {
 	return getDictionary(pathCompleteDictionaryJSON)
