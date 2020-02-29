@@ -60,7 +60,7 @@ var ItalianMS = MS{
 	{"4", []string{"rr", "r"}},
 	{"5", []string{"gli", "ll", "l"}},
 	{"6", []string{"cci", "ci", "cce", "ce", "ggi", "gi", "gge", "ge"}},
-	{"7", []string{"cc", "gg", "cq", "kk", "q", "k", "c", "g",}},
+	{"7", []string{"cc", "gg", "cq", "kk", "ck", "q", "k", "c", "g",}},
 	{"8", []string{"ff", "vv", "f", "v"}},
 	{"9", []string{"pp", "bb", "p", "b"}},
 }
