@@ -1,4 +1,6 @@
 # lelouch
+The description of this tool is in Italian because this tool is designed for Italians (or for those who know Italian).
+
 Tool per esercitarsi con la conversione fonetica (The major system), in lingua italiana.
 
 ## Conversione fonetica
@@ -52,10 +54,16 @@ POLSO   950
   <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/interfaccia.png" width="40%" />
 </p>
 
-* La prima funzione crea un dizionario numerato (ogni parola è associata al numero corrispondente della conversione fonetica) con tutte le parole presenti nei file .txt nella cartella "paroleitaliane".
-* "CONVERTI", converte semplicemente il numero/parola in parola/numero.
-* "GAME", interroga e controlla la tua risposta.
-
-## In sviluppo
-* Modalità di gioco con più parole.
-* Modalità di gioco personale con numeri/parole/frasi inserite dall'utente.
+* La prima funzione crea dei dizionari numerati (ogni parola è associata al numero corrispondente della conversione fonetica) con tutte le parole presenti nei file "parolecomuni.txt" e "tutteleparole.txt" nella cartella "dizionari"
+* "Converti numeri o parole", converte semplicemente numeri/parole in parole/numeri. Es:
+<p align="center">
+  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/convertitore.png" width="40%" />
+</p>
+* Le modalità "Gioco", interrogano, controllano la risposta e suggeriscono altre soluzioni.
+<p align="center">
+  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/convertiParole.png" width="40%" />
+</p>
+<p align="center">
+    Inoltre è possibile scegliere il livello
+  <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/sceltaLivello.png" width="40%" />
+</p>
