@@ -68,3 +68,5 @@ Inoltre è possibile scegliere il livello
 <p align="center">
   <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/sceltaLivello.png" width="40%" />
 </p>
+
+Se si vuole aggiungere o rimuovere delle parole al dizionario, basta modificare il file "dizionari/parolecomuni.txt", ed eliminare i file *.json. All'avvio del tool i dizionari numerati verranno automaticamente ricreati.
