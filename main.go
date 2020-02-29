@@ -107,7 +107,7 @@ func stats() {
 	fmt.Println("Nel dizionario delle parole comuni ci sono", numberOfWords, "parole")
 }
 
-func chooseLevelGame() int {
+func chooseLevelGame(){
 	prompt := promptui.Select{
 		Label: "Seleziona il livello",
 		Items: []string{simpleLevel, mediumLevel, extremeLevel},
@@ -116,8 +116,7 @@ func chooseLevelGame() int {
 	if err != nil {
 		log.Fatal("Error: %s", err)
 	}
-
-	return getLevelGame(result)
+	levelGame = result
 
 }
 

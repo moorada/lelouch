@@ -102,7 +102,6 @@ func gamePhraseNW() {
 
 }
 func nw() int {
-
 	l := getLevelGame(levelGame)
 	number := stringWithCharset(l, charsetNumber)
 	fmt.Println("Converti il numero:", number)
@@ -129,7 +128,7 @@ func nw() int {
 	}
 	switch result {
 	case MostraSoluzioni:
-		showTableWordSet(dictionary.WordToNumber(response))
+		showTableWordSet(dictionary.WordToNumber(number))
 		return 0
 	case MenuPrincipale:
 		return -1
