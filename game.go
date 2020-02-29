@@ -20,9 +20,7 @@ func gamePhraseWN() {
 		if wn() == -1 {
 			return
 		}
-
 	}
-
 }
 
 func gameMix() {
@@ -30,11 +28,13 @@ func gameMix() {
 	for {
 		random := rand.Intn(2)
 		if random == 0 {
-			wn()
-		} else if random == 1 {
-			nw()
+			if wn() == -1 {
+				return
+			}
 		} else {
-			log.Fatal("fatale!")
+			if nw() == -1 {
+				return
+			}
 		}
 	}
 
@@ -44,8 +44,11 @@ func wn() int {
 	l := getLevelGame(levelGame)
 	number := stringWithCharset(l, charsetNumber)
 	SS := numberToWordSet(number)
-	randomWordSet := rand.Intn(len(SS) - 1)
-	wordSet := SS[randomWordSet]
+	wordSet := SS[0]
+	if len(SS) > 1 {
+		randomWordSet := rand.Intn(len(SS) - 1)
+		wordSet = SS[randomWordSet]
+	}
 	phrase := ""
 	for _, ws := range wordSet {
 		wordSlice := strings.Split(ws, ",")
@@ -95,7 +98,6 @@ func gamePhraseNW() {
 		if nw() == -1 {
 			return
 		}
-
 	}
 
 }
