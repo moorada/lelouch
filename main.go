@@ -49,7 +49,7 @@ func main() {
 		err1, completeDictionary = dictionary.GetCompleteDictionary()
 		err2, commonDictionary = dictionary.GetCommonDictionary()
 		if err1 != nil || err2 != nil {
-			log.Fatal("Error to get dictionaries ")
+			log.Fatal("Error to get dictionaries")
 		}
 	}
 
@@ -61,7 +61,7 @@ func start() {
 	for {
 		prompt := promptui.Select{
 			Label: Select,
-			Items: []string{UpdateDictionaries, Converter, GameWordToNumber, GameNumberToWord, GameMix},
+			Items: []string{Converter, GameWordToNumber, GameNumberToWord, GameMix},
 		}
 		_, result, err := prompt.Run()
 		if err != nil {
@@ -70,8 +70,6 @@ func start() {
 		}
 
 		switch result {
-		case UpdateDictionaries:
-			loadingDictionaries()
 		case Converter:
 			convert()
 		case GameWordToNumber:
@@ -107,7 +105,7 @@ func stats() {
 	fmt.Println("Nel dizionario delle parole comuni ci sono", numberOfWords, "parole")
 }
 
-func chooseLevelGame(){
+func chooseLevelGame() {
 	prompt := promptui.Select{
 		Label: "Seleziona il livello",
 		Items: []string{simpleLevel, mediumLevel, extremeLevel},
