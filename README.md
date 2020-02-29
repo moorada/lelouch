@@ -54,7 +54,7 @@ POLSO   950
   <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/menu.png" width="40%" />
 </p>
 
-"Converti numeri o parole", converte semplicemente numeri/parole in parole/numeri. Es:
+"Converti numeri o parole", converte semplicemente numeri/parole in parole/numeri. Nella conversione in parole, vengono visualizzate tutte le possibili combinazioni (delle parole comuni) in una tabella. Es:
 <p align="center">
   <img alt="Interfaccia Lelouch" src="https://raw.githubusercontent.com/moorada/lelouch/master/img/convertitore.png" width="90%" />
 </p>
