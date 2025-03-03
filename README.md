@@ -3,6 +3,17 @@ The description of this tool is in Italian because this tool is designed for Ita
 
 Tool per esercitarsi con la conversione fonetica (The major system), in lingua italiana.
 
+## 🕹️ Il Mio Gioco - Versione CLI  
+
+🚀 Questa è la vecchia versione del mio gioco, disponibile solo da riga di comando.  
+
+🔥 **Ora è disponibile una versione web migliorata!** 🔥  
+
+📜 La nuova versione web offre un'interfaccia più intuitiva e una migliore esperienza di gioco.  
+
+👉 Gioca online qui: [VERSIONE WEB](https://moorada.github.io/Converti)  
+
+
 ## Conversione fonetica
 La conversione fonetica è una tecnica di memorizzazione dei numeri. Funziona convertendo i numeri in consonanti e, aggiungendo opportunamente delle vocali, trasformarle in parole che si possono ricordare con più facilità di una serie di numeri, in modo particolare usando altre regole mnemoniche. 
 
