@@ -11,7 +11,7 @@ Tool per esercitarsi con la conversione fonetica (The major system), in lingua i
 
 📜 La nuova versione web offre un'interfaccia più intuitiva e una migliore esperienza di gioco.  
 
-👉 Gioca online qui: [VERSIONE WEB](https://moorada.github.io/Converti)  
+👉 Gioca online qui: [VERSIONE WEB](https://converti.alongale.com/)  
 
 
 ## Conversione fonetica
